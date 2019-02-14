@@ -1,0 +1,81 @@
+.latest-articles{
+	@include colors(null, gray);
+	@include pt(80);
+	@include pb(80);
+	@extend %text-center;
+	overflow: hidden;
+   
+	.article-title{
+		h2{
+			@include fontSize(40);
+			position: relative;
+			@include pb(20);
+
+
+			@media #{$sm} { font-size: 30px; &:after { width: 80px !important; } } 
+			@media #{$md} { font-size: 35px; &:after { width: 100px !important; }  } 
+
+			&:after {
+				content: '';
+				@include colors(null, brown);
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				height: 2px;
+				width: 120px;
+			}
+		}
+	}
+	.latest-article{ 
+
+		@media #{$sm} {
+			column-count: 1;
+		} 
+		@media #{$md} {
+			column-count: 2;
+		}
+		@media #{$lg} {
+			column-count: 3;
+		}
+
+		.ad{ display: block; width: 95%; margin: 0 auto 20px !important; }
+
+		.article-item{
+			@include m(0 1% 20px);
+			border-radius: 20px;
+			overflow: hidden;
+			@include colors(null, white);
+			@extend %inline;
+	    	@include shadow(2px, 2px, 10px, #333, .10);
+ 
+			img{
+				@extend %block;
+				width: 100%;
+			    background-repeat: no-repeat;
+			    background-size: cover;
+			    background-position: center;
+			}
+			.article {
+				@extend %text-left;
+				@include p(0 40px 20px);
+				h3{
+					@include fontSize(30);
+					@include m(25px 0);
+				}
+				p{
+					@include m(25px 0);
+					@include font($light);
+					line-height: 1.4;
+				}
+				span {
+					@include m(25px 0 0);
+					@include font($light);
+					@include fontSize(13);
+					@extend %block;
+					@extend %text-right;
+				}
+			}
+		}
+	}
+}

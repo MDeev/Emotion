@@ -1,0 +1,232 @@
+body {
+	@include colors(null, white);
+	@include font;
+
+	.content{
+		.header{
+			min-height: 100vh;
+			@include colors(white, dark2);
+			position: relative;
+			background-image: url('../img/header-image.jpg');
+			background-attachment: fixed;
+		    background-repeat: no-repeat;
+		    background-size: cover;
+		    background-position: center;
+			overflow: hidden;
+
+			.navbar.sticky {
+				@include pt(5);
+				@include pb(10);
+			}
+
+			.navbar{
+				@include colors(null, gray2);
+				@extend %clear;
+				@include pt(20);
+				@include pb(20);
+				@include transition(.3s);
+				overflow: hidden;
+				z-index: 999;
+
+				position: fixed;
+				width: 100%;
+
+				.brand{
+					span a { @include colors(dark2); }
+					@include fontSize(30);
+					@include font($bold);
+					@extend %bold;
+					@extend %inline;
+				}
+				.nav-links{
+					@extend %inline;
+					@extend %float-right;
+
+					ul{
+						li{
+							@extend %inline;
+							a{
+								@include colors(dark);
+								@include fontSize(18);
+								@include p(5px 12px);
+								@include ml(3);
+								@include mr(3);
+								position: relative;
+
+								&:after {
+									content: '';
+									@include colors(null, dark);
+									position: absolute;
+									bottom: 0;
+									left: 50%;
+									transform: translateX(-50%);
+									height: 1px;
+									width: 0;
+									@include transition(.3s);
+								}
+								&:hover:after {
+									width: 70%;
+								}
+							}
+						}
+					}
+				}
+
+				@media #{$sm} { 
+					.brand, .nav-links {
+						display: block;
+						float: none;
+						text-align: center;
+						line-height: normal;
+					}
+					.brand {
+						font-size: 40px !important;
+					}
+					.nav-links{
+						padding: 10px 0 0;
+						margin-top: 5px;
+						ul li {
+							margin-bottom: 7px !important;
+							a{
+								padding: 3px 5px;
+								font-size: 16px !important;
+							}
+						}
+
+					}
+				} 
+
+				@media #{$md} {
+					.brand, .nav-links {
+						display: block;
+						float: none;
+						text-align: center;
+					}
+					.brand {
+						font-size: 30px !important;
+					}
+					.nav-links{
+						margin-top: 5px;
+						padding: 10px 0 0;
+					}
+				}
+
+				@media #{$lg} {
+					.brand, .nav-links {
+						display: inline;
+					}
+					.nav-links{
+						float: right;
+						margin-top: 0;
+					}
+				}
+			}
+			.heading{
+				@extend %text-center;
+				@extend %block;
+				position: absolute;
+				width: calc(100% - 40px);
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, calc(-50% + 50px));
+				@include pl(20);
+				@include pr(20);
+				overflow: hidden;
+
+				span{
+					@include fontSize(25);
+					@include font($bold);
+					text-transform: uppercase;
+				}
+
+				h1{
+					@include fontSize(80);
+				}
+
+				p{
+					@include fontSize(18);
+					font-style: italic;
+					@include m(0 23% 40px);
+					@include font($light);
+					line-height: 1.5;
+				}
+
+				div{
+					text-transform: uppercase;
+					@include font($bold);
+					@include colors(gray, brown);
+					@include fontSize(22);
+					@include p(15px 35px);
+					@extend %inline;
+					cursor: pointer;
+					border-radius: 50px;
+					@include transition(.3s);
+
+					&:hover {
+						@include colors(gray, brown2);
+					}
+					&:active{
+						@include colors(gray, dark);					
+					}
+				}
+
+
+
+				@media #{$sm} { 
+
+					span {
+						font-size: 17px !important;
+					}
+					h1 {
+						font-size: 30px !important;
+					}
+					p{
+						margin: 0 5% 50px !important;
+						font-size: 14px !important;
+					}
+					div{
+						padding: 10px 25px !important;
+						font-size: 18px !important;
+					}
+				}
+
+				@media #{$md} { 
+					span {
+						font-size: 22px !important;
+					}
+					h1 {
+						font-size: 60px !important;
+					}
+					p{
+						margin: 0 15% 40px !important;
+					}
+				}
+
+				@media #{$lg} { 
+					span {
+						font-size: 30px !important;
+					}
+					h1 {
+						font-size: 70px !important;
+					}
+					p{
+						margin: 0 20% 30px !important;
+					}
+				}
+
+				@media #{$xlg} { 
+					span {
+						font-size: 25px !important;
+					}
+					h1 {
+						font-size: 80px !important;
+					}
+					p{
+						margin: 0 23% 30px !important;
+					}
+				}
+			}
+		}
+	}
+}
+

@@ -1,0 +1,96 @@
+.details{
+	@include colors(null, white);
+	@include pt(80);
+	@include pb(80);
+	@extend %text-center;
+	overflow: hidden;
+
+	.detail{
+		width: 25.1%;
+		height: 430px;
+		@include colors(null, dark2);
+		@include m(0 2%);
+		@extend %inline;
+		border-radius: 20px;
+		position: relative;
+	    @include shadow(3px, 3px, 7px, #333, .30);
+	    @include transition(.3s);
+	    cursor: pointer;
+
+
+		@media #{$sm} {
+			width: 90%;
+			margin-bottom: 20px;
+			&:hover{ transform: translateY(0) !important; }
+		} 
+		@media #{$md} {
+			width: 90%;
+			margin-bottom: 20px;
+			&:hover{ transform: translateY(0) !important; }
+		} 
+		@media #{$lg} {
+			width: 25.1%;
+			margin: 0 2%;
+			&:hover{ transform: translateY(-10px) !important; }
+		} 
+
+	    &:hover{
+	    	@include shadow(4px, 4px, 10px, #333, .40);
+	    	transform: translateY(-10px);
+	    }
+
+		&:last-of-type{
+			@include colors(null, brown);
+		}
+
+		& > div{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 80%;
+			transform: translate(-50%, -50%);
+			@include colors(white);
+			overflow: hidden;
+			
+			h3{
+				@include fontSize(30);
+				@include mb(20);
+				@include pb(20);
+				position: relative;
+
+				&:after {
+					content: '';
+					@include colors(null, white);
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					height: 2px;
+					width: 90px;
+				}
+			}
+			p{
+				font-style: italic;
+				@include font($light);
+				@include mb(40);
+				line-height: 1.3;
+			}
+			& > div{
+				@include font($bold);
+				@include p(8px 35px);
+				@extend %inline;
+				cursor: pointer;
+				border-radius: 50px;
+				@include transition(.3s);
+				border: 2px solid map-get($color, white);
+
+				&:hover {
+					@include colors(dark, white);
+				}
+				&:active{
+					@include colors(dark, gray);		
+				}
+			}
+		}
+	}
+}

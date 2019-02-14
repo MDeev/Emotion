@@ -1,0 +1,34 @@
+
+// Importing fonts
+$normal: 'Oxygen-Regular';
+$light: 'Oxygen-Light';
+$bold: 'Oxygen-Bold';
+
+@font-face {
+	font-family: 'Oxygen-Regular';
+	src: url('../fonts/Oxygen-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'Oxygen-Bold';
+	src: url('../fonts/Oxygen-Bold.ttf');
+}
+
+@font-face {
+	font-family: 'Oxygen-Light';
+	src: url('../fonts/Oxygen-Light.ttf');
+}
+
+
+// Color
+$color: (
+	dark: #444,
+	dark2: #232323,
+	white: #FFF,
+	brown: #e59361,
+	brown2: #d28757,
+	gray: #f3f3f3,
+	gray2: #F1F1F1,
+	gray3: #CCC,
+	gray4: #DDD
+);

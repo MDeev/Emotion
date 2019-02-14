@@ -1,0 +1,91 @@
+
+html, body{
+	box-sizing: border-box;
+}
+
+body{
+	position: relative;
+	overflow: hidden;
+}
+
+a{
+	text-decoration: none;
+	outline: 0;
+}
+
+ul{
+	padding: 0;
+	margin: 0;
+	li{
+		list-style: none;
+	}
+}
+
+%container {
+	width: 100%;
+	padding: 0 20px;
+	margin-left: auto;
+	margin-right: auto;
+	@media #{$sm} {
+	    width: calc(100% - 40px);
+	}
+	@media #{$md} { 
+	    max-width: 710px;
+	}
+	@media #{$lg} {
+	    max-width: 935px;
+	}
+	@media #{$xlg} {
+	    max-width: 1140px;
+	}
+}
+
+.container{
+	@extend %container;
+}
+
+%clear {
+	clear: both;
+}
+
+.clear{
+	@extend %clear;
+}
+
+%bold {
+	font-weight: bold;
+}
+
+%text-center {
+	text-align: center;
+}
+
+%text-right {
+	text-align: right;
+}
+
+%text-left {
+	text-align: left;
+}
+
+%float-right {
+	float: right;
+}
+
+%float-left {
+	float: left;
+}
+
+%block {
+	display: block;
+}
+
+%inline {
+	display: inline-block;
+}
+
+
+::selection{
+	color: map-get($color, white);
+	background-color: map-get($color, brown);
+}

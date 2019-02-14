@@ -1,0 +1,94 @@
+.footer {
+	@extend %block;
+	@include pt(40);
+	@include pb(30);
+	@include font($light);
+	@include fontSize(14);
+	@include colors(gray3, dark);
+	overflow: hidden;
+
+	@media #{$sm} { font-size: 12px; } 
+	@media #{$md} { font-size: 13px; } 
+	@media #{$lg} { font-size: 14px; } 
+
+	.copyright, .ptc{
+		@extend %inline;
+		a{
+			@include colors(gray3);
+			@include transition(.3s);
+
+			&:hover {
+				@include colors(gray2);
+			}
+		}
+	}
+
+	@media #{$sm} {
+		.copyright, .ptc{
+			text-align: center;
+			display: block;
+			width: 100%;
+		}
+		.copyright{ margin-bottom: 20px; }
+		.ptc{
+			float: none;
+			a{
+				 margin: 0 5px;
+			}
+		}
+	} 
+
+	@media #{$md} {
+		.copyright, .ptc{
+			text-align: center;
+			display: block;
+			width: 100%;
+		}
+		.copyright{ margin-bottom: 30px; }
+		.ptc{
+			float: none;
+			a{
+				 margin: 0 10px;
+			}
+		}
+	}
+
+	@media #{$lg} {
+		.copyright, .ptc{
+			display: inline-block;
+			width: 50%;
+		}
+		.copyright{
+			margin-bottom: 0;
+			text-align: left;
+		}
+		.ptc{
+			text-align: right;
+			a{
+				 margin: 0 15px;
+				 &:last-of-type{
+				 	margin-right: 0;
+				 }
+			}
+		}
+	} 
+
+	.copyright{
+		@extend %float-left;
+		a{
+			@include colors(brown);
+		}
+	}
+
+	.ptc{
+		@extend %float-right;
+		a{
+			&:first-of-type{
+				@include mr(15);
+			}
+			&:last-of-type{
+				@include ml(15);
+			}
+		}
+	}
+}

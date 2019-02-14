@@ -1,0 +1,166 @@
+
+.articles{
+	@include pt(80);
+	@include pb(80);
+	@include colors(null, white);
+	@extend %text-center;
+
+	@media #{$sm} { 
+		h2{
+			font-size: 30px !important;
+			&:after{ width: 80px !important }
+		}
+		.article{
+			width: 100% !important;
+			margin-bottom: 20px !important;
+			float: none !important;
+		}
+	} 
+
+	@media #{$md} {
+		h2{
+			font-size: 35px !important;
+			&:after{ width: 100px !important }
+		}
+		.article{
+			width: 100% !important;
+			margin-bottom: 20px !important;
+			float: none !important;
+		}
+	}
+
+	@media #{$lg} {
+		h2{
+			font-size: 40px !important;
+			&:after{ width: 120px !important }
+		}
+		.article{
+
+			&:first-of-type{
+				width: 69% !important;
+				float: left !important;
+				margin: 0 2% 20px 0 !important;
+			}
+			&:nth-of-type(2){
+				width: 29% !important;
+				float: right !important;
+				margin-bottom: 20px !important;
+			}
+			&:nth-of-type(3){
+				width: 29% !important;
+				float: right !important;
+				margin-bottom: 20px !important;
+			}
+			&:nth-of-type(4){
+				width: 49% !important;
+				float: left !important;
+				margin: 0 2% 0 0 !important;
+			}
+			&:last-of-type{
+				width: 49% !important;
+				float: right !important;
+			}
+		}
+	} 
+
+	h2{
+		@include fontSize(40);
+		position: relative;
+		@include pb(20);
+
+		&:after {
+			content: '';
+			@include colors(null, brown);
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 2px;
+			width: 120px;
+		}
+	}
+
+	.article {
+
+		@extend %inline;
+		position: relative;
+		border-radius: 15px;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	    background-position: center;
+	    @include colors(white);
+	    @include shadow;
+
+		&:first-of-type{
+			width: 69%;
+			height: 500px;
+			@extend %float-left;
+			@include m(0 2% 20px 0);
+			background-image: url('../img/card-bg-1.jpg');
+		}
+		&:nth-of-type(2){
+			width: 29%;
+			height: 240px;
+			@extend %float-right;
+			@include mb(20);
+			background-image: url('../img/card-bg-2.jpg');
+			a{ @include colors(white); }
+		}
+		&:nth-of-type(3){
+			width: 29%;
+			height: 240px;
+			@extend %float-right;
+			@include mb(20);
+			background-image: url('../img/card-bg-3.jpg');
+	    	@include colors(dark2);
+			.content-text h3:after{ @include colors(null, dark2); }
+			a{ @include colors(dark2); }
+		}
+		&:nth-of-type(4){
+			width: 49%;
+			height: 500px;
+			@extend %float-left;
+			@include m(0 2% 0 0);
+			background-image: url('../img/card-bg-4.jpg');
+		}
+		&:last-of-type{
+			width: 49%;
+			height: 500px;
+			@extend %float-right;
+			background-image: url('../img/card-bg-5.jpg');
+	   		@include colors(dark2);
+			.content-text h3:after{ @include colors(null, dark2); }
+		}
+
+		.content-text{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+
+			h3{ 
+				@include fontSize(30);
+				position: relative;
+				@include pb(20);
+				&:after {
+					content: '';
+					@include colors(null, white);
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					transform: translateX(-50%);
+					height: 2px;
+					width: 90px;
+				}
+			}
+
+			p, a {
+				font-style: italic;
+				line-height: 1.5;
+				@include font($light);
+			}
+		}
+	}
+}
+
